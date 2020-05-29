@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		.player{
+			width: 300px;
+			height: 455px;
+			background-image: url(player.png);
+			position: absolute;
+			left: 34%;
+			top: 49%;
+			transition: 0.5s;
+
+		}
+		.budilnik{
+			width: 70px;
+			height: 100px;
+			background-image: url(budilnik.png);
+			background-size: 100% 100%;
+			position: absolute;
+			left: 63%;
+			top: 78%;
+		}
+		.message{
+			width: 155px;
+			height: 105px;
+			position: absolute;
+			background-image: url(talk.png);
+			background-size: 100% 100%;
+			left: 44%;
+			top: 40%;
+			display: none;
+			transition: 0.5s;
+		}
+		.message2{
+			width: 150px;
+			height: 105px;
+			position: absolute;
+			background-image: url(talk.png);
+			background-size: 100% 100%;
+			left: 64%;
+			top: 66%;
+			transition: 0.5s;
+		}
+		.playerTalk {
+			font-family: Arial;
+			font-weight: bold;
+			position: absolute;
+			top: 30px;
+			left: 20px;
+		}
+		.budilnikTalk{
+			font-family: Arial;
+			font-weight: bold;
+			position: absolute;
+			top: 40px;
+			left: 20px;
+		}
+		.body{
+			background-image: url(komnata.png);
+			background-size: 100% 100%;	
+			width: 1870px;
+			height: 920px;
+		}
+		.timer{
+			font-size: 30px;
+			font-weight: bold;
+			display: none;
+		}
+		.timer2{
+			font-size: 30px;
+			font-weight: bold;
+			display: none;
+		}
+		.backpack {
+			width: 110px;
+			height: 90px;
+			background-image: url(backpack.png);
+			background-size: 100% 100%;
+			position: absolute;
+			left: 80%;
+			top: 86%;
+		}
+		.nosok {
+			width: 100px;
+			height: 90px;
+			background-image: url(nosok.png);
+			background-size: 100% 100%;
+			position: absolute;
+			left: 7%;
+			top: 90%;
+		}
+		.kepka {
+			width: 100px;
+			height: 50px;
+			background-image: url(kepka.png);
+			background-size: 100% 100%;
+			position: absolute;
+			left: 70%;
+			top: 16%;
+		}
+		.girl {
+			width: 150px;
+			height: 300px;
+			background-image: url(girl.png);
+			background-size: 100% 100%;
+			position: absolute;
+			left: 22%;
+			top: 38%;
+			display: none;
+			transition: 2s;
+		}
+		.girl2 {
+			width: 150px;
+			height: 280px;
+			background-image: url(girl2.png);
+			background-size: 100% 100%;
+			position: absolute;
+			left: 25%;
+			top: 38%;
+			display: none;
+			transition: 2s;
+		}
+		.message3 {
+			width: 150px;
+			height: 105px;
+			position: absolute;
+			background-image: url(talk.png);
+			background-size: 100% 100%;
+			left: 28%;
+			top: 27%;
+			display: none;
+		}
+		.talk {
+			font-family: Arial;
+			font-weight: bold;
+			position: absolute;
+			top: 30px;
+			left: 28px;
+		}
+		.moneta {
+			background-image: url(moneta.png);
+			background-size: 100% 100%;
+			width: 50px;
+			height: 50px;
+			position: absolute;
+			top: 94%;
+			left: 23%;
+			display: none;
+		}
+		.moneta2 {
+			background-image: url(moneta.png);
+			background-size: 100% 100%;
+			width: 50px;
+			height: 50px;
+			position: absolute;
+			top: 94%;
+			left: 90%;
+			display: none;
+		}
+		.moneta3 {
+			background-image: url(moneta.png);
+			background-size: 100% 100%;
+			width: 50px;
+			height: 50px;
+			position: absolute;
+			top: 64%;
+			left: 34%;
+			display: none;
+		}
+		.moneta4 {
+			background-image: url(moneta.png);
+			background-size: 100% 100%;
+			width: 50px;
+			height: 50px;
+			position: absolute;
+			top: 50%;
+			display: none;
+		}
+		.moneta5 {
+			background-image: url(moneta.png);
+			background-size: 100% 100%;
+			width: 50px;
+			height: 50px;
+			position: absolute;
+			left: 90%;
+			display: none;
+		}
+		.teacher {
+			width: 200px;
+			height: 320px;
+			background-image: url(teacher.png);
+			background-size: 100% 100%;
+			position: absolute;
+			left: 45%;
+			top: 42%;
+			transition: 2s;
+			display: none;
+		}
+		.message4 {
+			width: 170px;
+			height: 125px;
+			position: absolute;
+			background-image: url(talk.png);
+			background-size: 100% 100%;
+			left: 50%;
+			top: 32%;
+			display: none;
+		}
+		.novella {
+			width: 1860px;
+			height: 300px;
+			background-color: blue;
+			position: absolute;
+			top: 66%;
+			opacity: 0.3;
+			display: flex;
+		}
+		.vopros1 {
+			width: 600px;
+			height: 260px;
+			margin-top: 20px;
+			margin-left: 10px;
+		}
+		.vopros2 {
+			width: 600px;
+			height: 260px;
+			margin-top: 20px;
+			margin-left: 10px;
+		}
+		.vopros3 {
+			width: 600px;
+			height: 260px;
+			margin-top: 20px;
+			margin-left: 10px;
+		}
+		.vopros4 {
+			width: 600px;
+			height: 260px;
+			margin-top: 20px;
+			margin-left: 10px;
+		}
+		.text {
+			font-family: Arial;
+			font-weight: bold;
+			font-size: 25px;
+			color: white;
+		}
+		.text2 {
+			font-family: Arial;
+			font-weight: bold;
+			font-size: 25px;
+			color: white;
+		}
+		.textn2 {
+			font-family: Arial;
+			font-weight: bold;
+			font-size: 25px;
+			color: white;
+		}
+		.none{
+			display: none;
+		}
+		.win {
+			background-size: 100% 100%;
+			width: 800px;
+			height: 420px;
+			position: absolute;
+			top: 30%;
+			left: 30%;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="body">
+		<div><span class="timer">Время:</span></div>
+		<div><span class="timer2">Время:</span></div>
+		<div class="message"><span class="playerTalk">Вот блин опять в школу!</span></div>
+		<div class="player"></div>
+		<div class="message2"><span class="budilnikTalk">ДЗЫЫЫЫНЬ!</span></div>
+		<div class="budilnik"></div>
+		<div class='backpack'></div>
+		<div class='nosok'></div>
+		<div class='kepka'></div>
+		<div class="girl"></div>
+		<div class="girl2"></div>
+		<div class="message3"><span class="talk">Уже 5 часов скорее.</span></div>
+		<div class="moneta"></div>
+		<div class="moneta2"></div>
+		<div class="moneta3"></div>
+		<div class="moneta4"></div>
+		<div class="moneta5"></div>
+		<div class="teacher"></div>
+		<div class="message4"><span class="talk">Сейчас будет тест приготовься.</span></div>
+		<div class="none">
+			<div class="novella">
+				<div class="vopros1">
+					<h1 class="text">1. Человеческое сердце качает кровь как насос?</h1>
+					<p class="textn2">1.Правда</p>
+					<p class="text2">2.Не правда</p>
+				</div>
+				<div class="vopros2">
+					<h1 class="text">2. Что обозначает формула H2O?</h1>
+					<p class="text2">1.Гелий</p>
+					<p class="text2">2.Кислород</p>
+					<p class="textn2">3.Воду</p>
+					<p class="text2">4.Аммиак</p>
+				</div>
+				<div class="vopros3">
+					<h1 class="text">3. В какой стране проживает самое большое количество людей?</h1>
+					<p class="textn2">1.Китай</p>
+					<p class="text2">2.США</p>
+					<p class="text2">3.Россия</p>
+				</div>
+				<div class="vopros4">
+					<h1 class="text">4. Сколько сейчас времени?</h1>
+					<p class="text2">1. 16:00</p>
+					<p class="textn2">2. 17:00</p>
+					<p class="text2">3. 14:00</p>
+					<p class="text2">4. 12:00</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<img src="win.png" class="win">
+
+	<script type="text/javascript">
+		let player = document.querySelector(".player");
+		let budilnik = document.querySelector('.budilnik');
+		let message = document.querySelector('.message');
+		let message2 = document.querySelector('.message2');
+		let body = document.querySelector('.body');
+		let timer = document.querySelector('.timer');
+		let timer2 = document.querySelector('.timer2');
+		let backpack = document.querySelector('.backpack');
+		let nosok = document.querySelector('.nosok');
+		let kepka = document.querySelector('.kepka');
+		let girl = document.querySelector('.girl');
+		let girl2 = document.querySelector('.girl2');
+		let message3 = document.querySelector('.message3');
+		let moneta = document.querySelector('.moneta');
+		let moneta2 = document.querySelector('.moneta2');
+		let moneta3 = document.querySelector('.moneta3');
+		let moneta4 = document.querySelector('.moneta4');
+		let moneta5 = document.querySelector('.moneta5');
+		let teacher = document.querySelector('.teacher');
+		let message4 = document.querySelector('.message4');
+		let none = document.querySelector('.none');
+		let pravilno = document.querySelectorAll(".textn2");
+		let nepravilno = document.querySelectorAll(".text2");
+		let otvet = 0;
+		let time = 15;
+		let time2 = 10;
+		let score = 0;
+		let coins = 0;
+		let win = document.querySelector('.win');
+
+		let message1 = function() {
+			message.style.display = 'block';
+			player.style.left = '44%';
+			message.style.left = '54%';
+			alert('Сынок пора в школу, автобус уже собирается уезжать.');
+			message2.style.display = 'none';
+		}
+		setTimeout(message1 , 3000);
+		/**Первая локация**/
+		for(let i=0; i<4; i++){
+			pravilno[i].onclick = function() {
+				alert('Правильно.');
+				otvet = otvet + 1;
+				if (otvet == 4) {
+					alert('Молодец, ты проучился весь день, завтра опять в школу.');
+					body.style.display = 'none';
+					win.style.display = 'block';
+				}
+			}
+		}
+		for(let i=0; i<9; i++){
+			nepravilno[i].onclick = function() {
+			alert('Неа...');
+		}
+		}
+		let locations = function() {
+			message.style.display = 'none';
+			budilnik.style.display = 'none';
+			alert('Быстрей ищи свои вещи и иди в школу!');
+			timer.style.display = 'block';
+			let vremya = function() {
+				backpack.onclick = function() {
+					score = score + 1;
+					backpack.style.display = 'none';
+					if (score == 3) {
+						clearInterval(stop);
+						alert('Молодец! Ты справился.');
+						let location2 = function() {
+							body.style.backgroundImage = 'url(stolovaia.jpg)';
+							timer.style.display = 'none';
+							player.style.left = '35%';
+							girl.style.display = 'block';
+							girl2.style.display = 'block';
+							message3.style.display = 'block';
+							function away() {
+								girl.style.left = '60%';
+								girl2.style.left = '63%';
+								message3.style.display = 'none';
+								let none = function() {
+									girl.style.opacity = 0;
+									girl2.style.opacity = 0;
+								}
+								setTimeout(none, 2050);
+							}
+							setTimeout(away, 2000);
+							let game = function() {
+								alert('Мне нужны деньги чтобы купить булочку хмм...');
+								alert('Найди все монеты чтобы купить булочку. Скорее пока не начался урок!');
+								moneta.style.display = 'block';
+								moneta2.style.display = 'block';
+								moneta3.style.display = 'block';
+								moneta4.style.display = 'block';
+								moneta5.style.display = 'block';
+								timer2.style.display = 'block';
+								let vremya2 = function() {
+									time2 = time2 - 1;
+									timer2.innerHTML = time2;
+									if (time2 <= 0) {
+										clearInterval(stop2);
+										alert('О нет тебя отвели к завучу!');
+									}
+									moneta.onclick = function() {
+										coins = coins + 1;
+										moneta.style.display = 'none';
+										if (coins == 5) {
+											alert('Наконец то можно насладиться булочкой.');
+											alert('Уже нужно идти к следующему уроку');
+											clearInterval(stop2);
+											let location3 = function() {
+												body.style.backgroundImage = 'url(school.jpg)';
+												timer2.style.display = 'none';
+												player.style.left = '60%';
+												teacher.style.display = 'block';
+												message4.style.display = 'block';
+												let test = function() {
+													none.style.display = 'block';
+													message4.style.display = 'none';
+													
+												}
+												setTimeout(test, 2500);
+											}
+											setTimeout(location3, 1000);
+										}
+									}
+									moneta2.onclick = function() {
+										coins = coins + 1;
+										moneta2.style.display = 'none';
+										if (coins == 5) {
+											alert('Наконец то можно насладиться булочкой.');
+											alert('Уже нужно идти к следующему уроку');
+											clearInterval(stop2);
+											let location3 = function() {
+												body.style.backgroundImage = 'url(school.jpg)';
+												timer2.style.display = 'none';
+												player.style.left = '60%';
+												teacher.style.display = 'block';
+												message4.style.display = 'block';
+												let test = function() {
+													none.style.display = 'block';
+													message4.style.display = 'none';
+													for(let i=0; i<4; i++){
+														pravilno[i].onclick = function() {
+														alert('Правильно.');
+														otvet = otvet + 1;
+														if (otvet == 4) {
+															alert('Молодец, ты проучился весь день, завтра опять в школу.');
+														}
+													}
+													}
+													nepravilno.onclick = function() {
+														alert('Неа...');
+													}
+												}
+												setTimeout(test, 1000);
+											}
+											setTimeout(location3, 1000);
+										}
+									}
+									moneta3.onclick = function() {
+										coins = coins + 1;
+										moneta3.style.display = 'none';
+										if (coins == 5) {
+											alert('Наконец то можно насладиться булочкой.');
+											alert('Уже нужно идти к следующему уроку');
+											clearInterval(stop2);
+											let location3 = function() {
+												body.style.backgroundImage = 'url(school.jpg)';
+												timer2.style.display = 'none';
+												player.style.left = '60%';
+												teacher.style.display = 'block';
+												message4.style.display = 'block';
+												let test = function() {
+													none.style.display = 'block';
+													message4.style.display = 'none';
+													for(let i=0; i<4; i++){
+														pravilno[i].onclick = function() {
+														alert('Правильно.');
+														otvet = otvet + 1;
+														if (otvet == 4) {
+															alert('Молодец, ты проучился весь день, завтра опять в школу.');
+														}
+													}
+													}
+													nepravilno.onclick = function() {
+														alert('Неа...');
+													}
+												}
+												setTimeout(test, 1000);
+											}
+											setTimeout(location3, 1000);
+										}
+									}
+									moneta4.onclick = function() {
+										coins = coins + 1;
+										moneta4.style.display = 'none';
+										if (coins == 5) {
+											alert('Наконец то можно насладиться булочкой.');
+											alert('Уже нужно идти к следующему уроку');
+											clearInterval(stop2);
+											let location3 = function() {
+												body.style.backgroundImage = 'url(school.jpg)';
+												timer2.style.display = 'none';
+												player.style.left = '60%';
+												teacher.style.display = 'block';
+												message4.style.display = 'block';
+												let test = function() {
+													none.style.display = 'block';
+													message4.style.display = 'none';
+													for(let i=0; i<4; i++){
+														pravilno[i].onclick = function() {
+														alert('Правильно.');
+														otvet = otvet + 1;
+														if (otvet == 4) {
+															alert('Молодец, ты проучился весь день, завтра опять в школу.');
+														}
+													}
+													}
+													nepravilno.onclick = function() {
+														alert('Неа...');
+													}
+												}
+												setTimeout(test, 1000);
+											}
+											setTimeout(location3, 1000);
+										}
+									}
+									moneta5.onclick = function() {
+										coins = coins + 1;
+										moneta5.style.display = 'none';
+										if (coins == 5) {
+											alert('Наконец то можно насладиться булочкой.');
+											alert('Уже нужно идти к следующему уроку');
+											clearInterval(stop2);
+											let location3 = function() {
+												body.style.backgroundImage = 'url(school.jpg)';
+												timer2.style.display = 'none';
+												player.style.left = '60%';
+												teacher.style.display = 'block';
+												message4.style.display = 'block';
+												let test = function() {
+													none.style.display = 'block';
+													message4.style.display = 'none';
+													for(let i=0; i<4; i++){
+														pravilno[i].onclick = function() {
+														alert('Правильно.');
+														otvet = otvet + 1;
+														if (otvet == 4) {
+															alert('Молодец, ты проучился весь день, завтра опять в школу.');
+														}
+													}
+													}
+													nepravilno.onclick = function() {
+														alert('Неа...');
+													}
+												}
+												setTimeout(test, 1000);
+											}
+											setTimeout(location3, 1000);
+										}
+									}
+								}
+								let stop2 = setInterval(vremya2, 1000);
+							}
+							setTimeout(game, 6000);
+						}
+						setTimeout(location2, 1000);
+					}
+				}
+				nosok.onclick = function() {
+					score = score + 1;
+					nosok.style.display = 'none';
+					if (score == 3) {
+						clearInterval(stop);
+						alert('Молодец! Ты справился.');
+						let location2 = function() {
+							body.style.backgroundImage = 'url(stolovaia.jpg)';
+							timer.style.display = 'none';
+							player.style.left = '35%';
+							girl.style.display = 'block';
+							girl2.style.display = 'block';
+							message3.style.display = 'block';
+							function away() {
+								girl.style.left = '60%';
+								girl2.style.left = '63%';
+								message3.style.display = 'none';
+								let none = function() {
+									girl.style.opacity = 0;
+									girl2.style.opacity = 0;
+								}
+								setTimeout(none, 2050);
+							}
+							setTimeout(away, 2000);
+							let game = function() {
+								alert('Мне нужны деньги чтобы купить булочку хмм...');
+								alert('Найди все монеты чтобы купить булочку. Скорее пока не начался урок!');
+								moneta.style.display = 'block';
+								moneta2.style.display = 'block';
+								moneta3.style.display = 'block';
+								moneta4.style.display = 'block';
+								moneta5.style.display = 'block';
+								timer2.style.display = 'block';
+								let vremya2 = function() {
+									time2 = time2 - 1;
+									timer2.innerHTML = time2;
+									if (time2 <= 0) {
+										clearInterval(stop2);
+										alert('О нет тебя отвели к завучу!');
+									}
+									moneta.onclick = function() {
+										coins = coins + 1;
+										moneta.style.display = 'none';
+										if (coins == 5) {
+											alert('Наконец то можно насладиться булочкой.');
+											alert('Уже нужно идти к следующему уроку');
+											clearInterval(stop2);
+											let location3 = function() {
+												body.style.backgroundImage = 'url(school.jpg)';
+												timer2.style.display = 'none';
+												player.style.left = '60%';
+												teacher.style.display = 'block';
+												message4.style.display = 'block';
+												let test = function() {
+													none.style.display = 'block';
+													message4.style.display = 'none';
+													pravilno.onclick = function() {
+														alert('Правильно.');
+														otvet = otvet + 1;
+														if (otvet == 4) {
+															alert('Молодец, ты проучился весь день, завтра опять в школу.');
+														}
+													}
+													nepravilno.onclick = function() {
+														alert('Неа...');
+													}
+												}
+												setTimeout(test, 1000);
+											}
+											setTimeout(location3, 1000);
+										}
+									}
+									moneta2.onclick = function() {
+										coins = coins + 1;
+										moneta2.style.display = 'none';
+										if (coins == 5) {
+											alert('Наконец то можно насладиться булочкой.');
+											alert('Уже нужно идти к следующему уроку');
+											clearInterval(stop2);
+											let location3 = function() {
+												body.style.backgroundImage = 'url(school.jpg)';
+												timer2.style.display = 'none';
+												player.style.left = '60%';
+												teacher.style.display = 'block';
+												message4.style.display = 'block';
+												let test = function() {
+													none.style.display = 'block';
+													message4.style.display = 'none';
+													pravilno.onclick = function() {
+														alert('Правильно.');
+														otvet = otvet + 1;
+														if (otvet == 4) {
+															alert('Молодец, ты проучился весь день, завтра опять в школу.');
+														}
+													}
+													nepravilno.onclick = function() {
+														alert('Неа...');
+													}
+												}
+												setTimeout(test, 1000);
+											}
+											setTimeout(location3, 1000);
+										}
+									}
+									moneta3.onclick = function() {
+										coins = coins + 1;
+										moneta3.style.display = 'none';
+										if (coins == 5) {
+											alert('Наконец то можно насладиться булочкой.');
+											alert('Уже нужно идти к следующему уроку');
+											clearInterval(stop2);
+											let location3 = function() {
+												body.style.backgroundImage = 'url(school.jpg)';
+												timer2.style.display = 'none';
+												player.style.left = '60%';
+												teacher.style.display = 'block';
+												message4.style.display = 'block';
+												let test = function() {
+													none.style.display = 'block';
+													message4.style.display = 'none';
+													pravilno.onclick = function() {
+														alert('Правильно.');
+														otvet = otvet + 1;
+														if (otvet == 4) {
+															alert('Молодец, ты проучился весь день, завтра опять в школу.');
+														}
+													}
+													nepravilno.onclick = function() {
+														alert('Неа...');
+													}
+												}
+												setTimeout(test, 1000);
+											}
+											setTimeout(location3, 1000);
+										}
+									}
+									moneta4.onclick = function() {
+										coins = coins + 1;
+										moneta4.style.display = 'none';
+										if (coins == 5) {
+											alert('Наконец то можно насладиться булочкой.');
+											alert('Уже нужно идти к следующему уроку');
+											clearInterval(stop2);
+											let location3 = function() {
+												body.style.backgroundImage = 'url(school.jpg)';
+												timer2.style.display = 'none';
+												player.style.left = '60%';
+												teacher.style.display = 'block';
+												message4.style.display = 'block';
+												let test = function() {
+													none.style.display = 'block';
+													message4.style.display = 'none';
+													pravilno.onclick = function() {
+														alert('Правильно.');
+														otvet = otvet + 1;
+														if (otvet == 4) {
+															alert('Молодец, ты проучился весь день, завтра опять в школу.');
+														}
+													}
+													nepravilno.onclick = function() {
+														alert('Неа...');
+													}
+												}
+												setTimeout(test, 1000);
+											}
+											setTimeout(location3, 1000);
+										}
+									}
+									moneta5.onclick = function() {
+										coins = coins + 1;
+										moneta5.style.display = 'none';
+										if (coins == 5) {
+											alert('Наконец то можно насладиться булочкой.');
+											alert('Уже нужно идти к следующему уроку');
+											clearInterval(stop2);
+											let location3 = function() {
+												body.style.backgroundImage = 'url(school.jpg)';
+												timer2.style.display = 'none';
+												player.style.left = '60%';
+												teacher.style.display = 'block';
+												message4.style.display = 'block';
+												let test = function() {
+													none.style.display = 'block';
+													message4.style.display = 'none';
+													pravilno.onclick = function() {
+														alert('Правильно.');
+														otvet = otvet + 1;
+														if (otvet == 4) {
+															alert('Молодец, ты проучился весь день, завтра опять в школу.');
+														}
+													}
+													nepravilno.onclick = function() {
+														alert('Неа...');
+													}
+												}
+												setTimeout(test, 1000);
+											}
+											setTimeout(location3, 1000);
+										}
+									}
+								}
+								let stop2 = setInterval(vremya2, 1000);
+							}
+							setTimeout(game, 6000);
+						}
+						setTimeout(location2, 1000);
+					}
+				}
+				kepka.onclick = function() {
+					score = score + 1;
+					kepka.style.display = 'none';
+					if (score == 3) {
+						clearInterval(stop);
+						alert('Молодец! Ты справился.');
+						let location2 = function() {
+							body.style.backgroundImage = 'url(stolovaia.jpg)';
+							timer.style.display = 'none';
+							player.style.left = '35%';
+							girl.style.display = 'block';
+							girl2.style.display = 'block';
+							message3.style.display = 'block';
+							function away() {
+								girl.style.left = '60%';
+								girl2.style.left = '63%';
+								message3.style.display = 'none';
+								let none = function() {
+									girl.style.opacity = 0;
+									girl2.style.opacity = 0;
+								}
+								setTimeout(none, 2050);
+							}
+							setTimeout(away, 2000);
+							let game = function() {
+								alert('Мне нужны деньги чтобы купить булочку хмм...');
+								alert('Найди все монеты чтобы купить булочку. Скорее пока не начался урок!');
+								moneta.style.display = 'block';
+								moneta2.style.display = 'block';
+								moneta3.style.display = 'block';
+								moneta4.style.display = 'block';
+								moneta5.style.display = 'block';
+								timer2.style.display = 'block';
+								let vremya2 = function() {
+									time2 = time2 - 1;
+									timer2.innerHTML = time2;
+									if (time2 <= 0) {
+										clearInterval(stop2);
+										alert('О нет тебя отвели к завучу!');
+									}
+									moneta.onclick = function() {
+										coins = coins + 1;
+										moneta.style.display = 'none';
+										if (coins == 5) {
+											alert('Наконец то можно насладиться булочкой.');
+											alert('Уже нужно идти к следующему уроку');
+											clearInterval(stop2);
+											let location3 = function() {
+												body.style.backgroundImage = 'url(school.jpg)';
+												timer2.style.display = 'none';
+												player.style.left = '60%';
+												teacher.style.display = 'block';
+												message4.style.display = 'block';
+												let test = function() {
+													none.style.display = 'block';
+													message4.style.display = 'none';
+													pravilno.onclick = function() {
+														alert('Правильно.');
+														otvet = otvet + 1;
+														if (otvet == 4) {
+															alert('Молодец, ты проучился весь день, завтра опять в школу.');
+														}
+													}
+													nepravilno.onclick = function() {
+														alert('Неа...');
+													}
+												}
+												setTimeout(test, 1000);
+											}
+											setTimeout(location3, 1000);
+										}
+									}
+									moneta2.onclick = function() {
+										coins = coins + 1;
+										moneta2.style.display = 'none';
+										if (coins == 5) {
+											alert('Наконец то можно насладиться булочкой.');
+											alert('Уже нужно идти к следующему уроку');
+											clearInterval(stop2);
+											let location3 = function() {
+												body.style.backgroundImage = 'url(school.jpg)';
+												timer2.style.display = 'none';
+												player.style.left = '60%';
+												teacher.style.display = 'block';
+												message4.style.display = 'block';
+												let test = function() {
+													none.style.display = 'block';
+													message4.style.display = 'none';
+													pravilno.onclick = function() {
+														alert('Правильно.');
+														otvet = otvet + 1;
+														if (otvet == 4) {
+															alert('Молодец, ты проучился весь день, завтра опять в школу.');
+														}
+													}
+													nepravilno.onclick = function() {
+														alert('Неа...');
+													}
+												}
+												setTimeout(test, 1000);
+											}
+											setTimeout(location3, 1000);
+										}
+									}
+									moneta3.onclick = function() {
+										coins = coins + 1;
+										moneta3.style.display = 'none';
+										if (coins == 5) {
+											alert('Наконец то можно насладиться булочкой.');
+											alert('Уже нужно идти к следующему уроку');
+											clearInterval(stop2);
+											let location3 = function() {
+												body.style.backgroundImage = 'url(school.jpg)';
+												timer2.style.display = 'none';
+												player.style.left = '60%';
+												teacher.style.display = 'block';
+												message4.style.display = 'block';
+												let test = function() {
+													none.style.display = 'block';
+													message4.style.display = 'none';
+													pravilno.onclick = function() {
+														alert('Правильно.');
+														otvet = otvet + 1;
+														if (otvet == 4) {
+															alert('Молодец, ты проучился весь день, завтра опять в школу.');
+														}
+													}
+													nepravilno.onclick = function() {
+														alert('Неа...');
+													}
+												}
+												setTimeout(test, 1000);
+											}
+											setTimeout(location3, 1000);
+										}
+									}
+									moneta4.onclick = function() {
+										coins = coins + 1;
+										moneta4.style.display = 'none';
+										if (coins == 5) {
+											alert('Наконец то можно насладиться булочкой.');
+											alert('Уже нужно идти к следующему уроку');
+											clearInterval(stop2);
+											let location3 = function() {
+												body.style.backgroundImage = 'url(school.jpg)';
+												timer2.style.display = 'none';
+												player.style.left = '60%';
+												teacher.style.display = 'block';
+												message4.style.display = 'block';
+												let test = function() {
+													none.style.display = 'block';
+													message4.style.display = 'none';
+													pravilno.onclick = function() {
+														alert('Правильно.');
+														otvet = otvet + 1;
+														if (otvet == 4) {
+															alert('Молодец, ты проучился весь день, завтра опять в школу.');
+														}
+													}
+													nepravilno.onclick = function() {
+														alert('Неа...');
+													}
+												}
+												setTimeout(test, 1000);
+											}
+											setTimeout(location3, 1000);
+										}
+									}
+									moneta5.onclick = function() {
+										coins = coins + 1;
+										moneta5.style.display = 'none';
+										if (coins == 5) {
+											alert('Наконец то можно насладиться булочкой.');
+											alert('Уже нужно идти к следующему уроку');
+											clearInterval(stop2);
+											let location3 = function() {
+												body.style.backgroundImage = 'url(school.jpg)';
+												timer2.style.display = 'none';
+												player.style.left = '60%';
+												teacher.style.display = 'block';
+												message4.style.display = 'block';
+												let test = function() {
+													none.style.display = 'block';
+													message4.style.display = 'none';
+													pravilno.onclick = function() {
+														alert('Правильно.');
+														otvet = otvet + 1;
+														if (otvet == 4) {
+															alert('Молодец, ты проучился весь день, завтра опять в школу.');
+														}
+													}
+													nepravilno.onclick = function() {
+														alert('Неа...');
+													}
+												}
+												setTimeout(test, 1000);
+											}
+											setTimeout(location3, 1000);
+										}
+									}
+								}
+								let stop2 = setInterval(vremya2, 1000);
+							}
+							setTimeout(game, 6000);
+						}
+						setTimeout(location2, 1000);
+					}
+				}
+				time = time - 1;
+				timer.innerHTML = time;
+				if (time <= 0) {
+					clearInterval(stop);
+					alert('Слишком поздно...');
+				}
+			}
+			let stop = setInterval(vremya, 1000);
+		}
+		setTimeout(locations , 7000);
+		
+	</script>
+</body>
+</html>
